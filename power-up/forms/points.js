@@ -15,16 +15,16 @@ window.points.addEventListener('submit', function(event){
 t.render(function(){
   return t.get('card', 'shared', 'estimate')
   .then(function(estimate){
-    window.estimate.value = estimate;
+    window.estimate.value = estimate || '';
     
     t.get('card', 'shared', 'real')
     .then(function(real){
-      window.real.value = real;
+      window.real.value = real || '';
     });
     
     t.get('card', 'shared', 'current')
     .then(function(current){
-      window.current.value = current;
+      window.current.value = current || 0;
     });
     
   })

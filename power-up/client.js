@@ -1,6 +1,18 @@
 console.log("Easy Scrum");
 
 TrelloPowerUp.initialize({
+  'card-buttons': function(t, options){
+    return [{
+      //icon: GREY_ROCKET_ICON,
+      text: 'Points'
+      callback: function(t){
+        return t.popup({
+          title: "Points
+          url: 'forms/points.html'
+        });
+      }
+    }];
+  },
   'card-badges': function(t, options) {
     return [{
       //icon: estimate ? GREY_ROCKET_ICON : WHITE_ROCKET_ICON,

@@ -11,8 +11,8 @@ TrelloPowerUp.initialize({
   'card-detail-badges': function(t, options) {
     return [{
       title: 'Points',
-      text: estimate || '---',
-      color: estimate ? null : 'red',
+      text: getStringPoints(t) || '---',
+      //color: estimate ? null : 'red',
       callback: function(t) {
         return t.popup({
           title: "Points",

@@ -14,7 +14,7 @@ TrelloPowerUp.initialize({
       callback: function(t) {
         return t.popup({
           title: "Points",
-          url: 'points.html',
+          url: 'forms/points.html',
         });
       }
     }]

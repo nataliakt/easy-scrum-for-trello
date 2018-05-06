@@ -7,7 +7,7 @@ TrelloPowerUp.initialize({
       text: 'Points'
       callback: function(t){
         return t.popup({
-          title: "Points
+          title: "Points"
           url: 'forms/points.html'
         });
       }

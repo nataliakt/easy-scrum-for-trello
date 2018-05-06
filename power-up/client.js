@@ -4,10 +4,10 @@ TrelloPowerUp.initialize({
   'card-buttons': function(t, options){
     return [{
       //icon: GREY_ROCKET_ICON,
-      text: 'Points'
+      text: 'Points',
       callback: function(t){
         return t.popup({
-          title: "Points"
+          title: "Points",
           url: 'forms/points.html'
         });
       }

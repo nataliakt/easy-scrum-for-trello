@@ -45,4 +45,7 @@ slider.oninput = function() {
 }
 
 // Atualiza slider
-var slider = document.getElementById("current");
+var current = document.getElementById("current");
+slider.oninput = function() {
+  slider.max = this.value;
+}

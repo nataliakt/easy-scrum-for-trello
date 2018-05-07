@@ -9,7 +9,7 @@ function openBurndown(t) {
     accentColor: '',
     fullscreen: true,
     title: 'Burndown'
-  })
+  });
 }
 
 TrelloPowerUp.initialize({

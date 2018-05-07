@@ -22,15 +22,17 @@ TrelloPowerUp.initialize({
       var real = data.real || estimate;
       var current = data.current || 0;
 
-      var text = "Not estimed";
-      var image = iconBlack;
+      var text = "";
+      var image = null;
       var color = null;
       
       if (estimate) {
         text = current + "/" + real;
+        image = iconWhite;
         if (real == current) {
-          image = iconWhite;
           color = "green";
+        } else {
+          color = "blue";
         }
       }
       
@@ -55,6 +57,8 @@ TrelloPowerUp.initialize({
         text = current + "/" + real;
         if (real == current) {
           color = "green";
+        } else {
+          color = "blue";
         }
       } else {
         color = "red";

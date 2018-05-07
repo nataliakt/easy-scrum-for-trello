@@ -1,22 +1,14 @@
 var t = TrelloPowerUp.iframe();
 
 window.points.addEventListener('submit', function(event){
-  event.preventDefault();
-  
-  return t.get('board', 'shared', 'story-points')
-  .then(function (storyPoints) {
-    var points = {
-      'estimate': window.estimate.value,
-      'date': window.date.value,
-      'current': window.current.value
-    }
-    JSON.parse(storyPoints)
-    JSON.stringify(points)
-    
-    return t.set('card', 'shared', )
-    .then(function(){
-      t.closePopup();
-    });
+  event.preventDefault();    
+  return t.set('card', 'shared', {
+    'estimate': window.estimate.value,
+    'date': window.date.value,
+    'current': window.current.value
+  })
+  .then(function(){
+    t.closePopup();
   });
 });
 

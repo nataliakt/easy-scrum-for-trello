@@ -77,4 +77,11 @@ TrelloPowerUp.initialize({
       }]
     });
   },
+  'show-settings': function(t, options){
+    return t.popup({
+      title: 'Settings',
+      url: 'form/settings.html',
+      //height: 184 // we can always resize later
+    });
+  }
 });

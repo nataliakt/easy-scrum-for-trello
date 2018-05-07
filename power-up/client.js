@@ -37,7 +37,8 @@ TrelloPowerUp.initialize({
 
 
 function getStringPoints(t) {
-  return t.get('card', 'shared')
+  var text = "";
+  t.get('card', 'shared')
   .then(function(data) {
     var estimate = data.estimate;
     var real = data.real || estimate;
@@ -46,8 +47,11 @@ function getStringPoints(t) {
     console.log(data, data['estimate'], estimate);
     
     if (estimate) {
-      return current + "/" + real;
+      text = current + "/" + real;
     }
-    return '';
   });
+  
+  console.log("return");
+  
+  return text;
 }

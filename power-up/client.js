@@ -1,9 +1,11 @@
-console.log("Easy Scrum");
+var icon = "https://nataliakt.github.io/easy-scrum-for-trello/images/kitty.png";
+var iconBlack = "https://nataliakt.github.io/easy-scrum-for-trello/images/kitty-black.png";
+var iconWhite = "https://nataliakt.github.io/easy-scrum-for-trello/images/kitty-white.png";
 
 TrelloPowerUp.initialize({
   'card-buttons': function(t, options){
     return [{
-      //icon: GREY_ROCKET_ICON,
+      icon: icon,
       text: 'Points',
       callback: function(t){
         return t.popup({
@@ -20,15 +22,22 @@ TrelloPowerUp.initialize({
       var real = data.real || estimate;
       var current = data.current || 0;
 
-      var text = "";
+      var text = "Not estimed";
+      var image = iconBlack;
+      var color = null;
       
       if (estimate) {
         text = current + "/" + real;
+        if (real == current) {
+          image = iconWhite;
+          color = "green";
+        }
       }
+      
       return [{
-        //icon: estimate ? GREY_ROCKET_ICON : WHITE_ROCKET_ICON,
+        icon: image,
         text: text,
-        //color: estimate ? null : 'red',
+        color: color,
       }];
     });
   },
@@ -39,15 +48,22 @@ TrelloPowerUp.initialize({
       var real = data.real || estimate;
       var current = data.current || 0;
 
-      var text = '';
+      var text = 'Click to Estime';
+      var color = null;
       
       if (estimate) {
         text = current + "/" + real;
+        if (real == current) {
+          color = "green";
+        }
+      } else {
+        color = "red";
       }
+      
       return [{
         title: 'Points',
         text: text,
-        //color: estimate ? null : 'red',
+        color: color,
         callback: function(t) {
           return t.popup({
             title: "Points",

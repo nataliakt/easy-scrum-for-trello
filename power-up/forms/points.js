@@ -3,12 +3,17 @@ var t = TrelloPowerUp.iframe();
 window.points.addEventListener('submit', function(event){
   event.preventDefault();
   
-  t.set('card', 'shared', 'real', window.real.value);
-  t.set('card', 'shared', 'current', window.current.value);
-  
   return t.set('card', 'shared', 'estimate', window.estimate.value)
   .then(function(){
-    t.closePopup();
+    
+    return t.set('card', 'shared', 'real', window.real.value)
+    .then(function(){
+      
+      return t.set('card', 'shared', 'current', window.current.value)
+      .then(function() {
+        t.closePopup();
+      });
+    });
   });
 });
 

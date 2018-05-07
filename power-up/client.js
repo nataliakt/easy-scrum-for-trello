@@ -12,6 +12,13 @@ var openBurndown = function (t) {
   });
 };
 
+var setTotalPoints = function () {
+  var extras = document.getElementsByClassName("list-header-extras");
+  console.log(extras);
+}
+
+setTotalPoints();
+
 TrelloPowerUp.initialize({
   'card-buttons': function(t, options){
     return [{

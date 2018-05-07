@@ -26,6 +26,7 @@ t.render(function(){
     t.get('card', 'shared', 'current')
     .then(function(current){
       window.current.value = current || 0;
+      window.estimateSpan.text = current || 0;
     });
     
   })
@@ -33,3 +34,11 @@ t.render(function(){
     t.sizeTo('#points').done();
   });
 });
+
+var slider = document.getElementById("current");
+var output = document.getElementById("currentSpan");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}

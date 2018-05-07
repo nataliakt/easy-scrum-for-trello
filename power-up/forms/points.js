@@ -30,18 +30,14 @@ t.render(function(){
     });
     
     window.estimate.oninput = function() {
-      if (window.real.value < window.estimate.value) {
+      if (window.real.value == '') {
         window.current.max = this.value;
-      } else {
-        window.current.max = window.real.value;
       }
     }
     
     window.real.oninput = function() {
-      if (window.real.value > window.estimate.value) {
+      if (window.real.value != '') {
         window.current.max = this.value;
-      } else {
-        window.current.max = window.estimate.value;
       }
     }
     

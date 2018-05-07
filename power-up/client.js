@@ -17,8 +17,6 @@ var setTotalPoints = function () {
   console.log(extras);
 }
 
-setTotalPoints();
-
 TrelloPowerUp.initialize({
   'card-buttons': function(t, options){
     return [{
@@ -35,7 +33,6 @@ TrelloPowerUp.initialize({
   'card-badges': function(t, options) {
     return t.get('card', 'shared')
     .then(function(data) {
-      console.log(options);
       var estimate = data.estimate;
       var real = data.real || estimate;
       var current = data.current || 0;
@@ -96,6 +93,7 @@ TrelloPowerUp.initialize({
     });
   },
   'board-buttons': function (t, opts) {
+    setTotalPoints();
     return [{
       icon: {
         dark: iconWhite,

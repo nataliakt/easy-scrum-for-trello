@@ -15,12 +15,12 @@ window.points.addEventListener('submit', function(event){
 t.render(function(){
   return t.get('card', 'shared', 'estimate')
   .then(function(estimate){
-    window.current.max = estimate || 0;
     window.estimate.value = estimate || '';
     
     t.get('card', 'shared', 'real')
     .then(function(real){
-      window.real.value = real || '';
+      window.current.max = real || estimate || 0;
+      window.real.value = real || estimate || '';
     });
     
     t.get('card', 'shared', 'current')
@@ -35,6 +35,7 @@ t.render(function(){
   });
 });
 
+// Atualiza span do current
 var slider = document.getElementById("current");
 var output = document.getElementById("currentSpan");
 output.innerHTML = slider.value;
@@ -42,3 +43,6 @@ output.innerHTML = slider.value;
 slider.oninput = function() {
   output.innerHTML = this.value;
 }
+
+// Atualiza slider
+var slider = document.getElementById("current");

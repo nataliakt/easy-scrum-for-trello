@@ -3,13 +3,20 @@ var t = TrelloPowerUp.iframe();
 window.points.addEventListener('submit', function(event){
   event.preventDefault();
   
-  return t.set('card', 'shared', {
-    'estimate': window.estimate.value,
-    'real': window.real.value,
-    'current': window.current.value
-  })
-  .then(function(){
-    t.closePopup();
+  return t.get('board', 'shared', 'story-points')
+  .then(function (storyPoints) {
+    var points = {
+      'estimate': window.estimate.value,
+      'date': window.date.value,
+      'current': window.current.value
+    }
+    JSON.parse(storyPoints)
+    JSON.stringify(points)
+    
+    return t.set('card', 'shared', )
+    .then(function(){
+      t.closePopup();
+    });
   });
 });
 
@@ -17,27 +24,19 @@ t.render(function(){
   return t.get('card', 'shared')
   .then(function(data){
     var estimate = data.estimate;
-    var real = data.real;
+    var date = data.date;
     var current = data.current;
     
     window.estimate.value = estimate || '';
     
-    window.current.max = real || estimate || 0;
-    window.real.value = real || estimate || '';
+    window.current.max = estimate || 0;
+    window.date.value = '';
     
     window.current.value = current || 0;
     window.currentSpan.innerHTML = current || 0;
     
     window.estimate.oninput = function() {
-      if (window.real.value == '') {
-        window.current.max = this.value;
-      }
-    }
-    
-    window.real.oninput = function() {
-      if (window.real.value != '') {
-        window.current.max = this.value;
-      }
+      window.current.max = this.value;
     }
     
     window.current.oninput = function() {

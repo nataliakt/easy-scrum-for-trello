@@ -47,6 +47,7 @@ t.render(function(){
     
     window.current.oninput = function() {
       window.currentSpan.innerHTML = this.value;
+      window.current.value = this.value;
     }
     
   })

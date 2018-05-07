@@ -36,7 +36,12 @@ TrelloPowerUp.initialize({
 });
 
 
-function getStringPoints(t) {  
+function getStringPoints(t) {
+  t.get('card', 'shared')
+  .then(function(data) {
+    console.log(data);
+  });
+  
   // Estimate Points
   var estimate = -1;
   t.get('card', 'shared', 'estimate')

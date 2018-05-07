@@ -26,26 +26,27 @@ t.render(function(){
     t.get('card', 'shared', 'current')
     .then(function(current){
       window.current.value = current || 0;
-      window.estimateSpan.text = current || 0;
+      window.estimateSpan.innerHTML = current || 0;
     });
+    
+    window.estimate.oninput = function() {
+      if (window.real.value <= window.estimate.value) {
+        window.current.max = this.value;
+      }
+    }
+    
+    window.real.oninput = function() {
+      if (window.real.value > window.estimate.value) {
+        window.current.max = this.value;
+      }
+    }
+    
+    window.current.oninput = function() {
+      window.estimateSpan.innerHTML = this.value;
+    }
     
   })
   .then(function(){
     t.sizeTo('#points').done();
   });
 });
-
-// Atualiza span do current
-var slider = document.getElementById("current");
-var output = document.getElementById("currentSpan");
-output.innerHTML = slider.value;
-
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
-
-// Atualiza slider
-var current = document.getElementById("current");
-slider.oninput = function() {
-  slider.max = this.value;
-}

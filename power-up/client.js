@@ -39,7 +39,7 @@ TrelloPowerUp.initialize({
       var real = data.real || estimate;
       var current = data.current || 0;
 
-      var text = '<span class="icon-sm icon-add"></span>';
+      var text = '';
       
       if (estimate) {
         text = current + "/" + real;

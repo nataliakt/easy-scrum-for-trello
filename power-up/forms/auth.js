@@ -4,7 +4,7 @@ t.render(function() {
   return t.sizeTo('#content');
 })
 
-var oauthUrl = window.TrelloPowerUp.util.relativeUrl('auth/authorize.html');
+var oauthUrl = window.TrelloPowerUp.util.relativeUrl('./auth/authorize.html');
 
 var authBtn = document.getElementById('authorize');
 authBtn.addEventListener('click', function() {

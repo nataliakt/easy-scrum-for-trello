@@ -14,44 +14,47 @@ TrelloPowerUp.initialize({
     }];
   },
   'card-badges': function(t, options) {
-    return [{
-      //icon: estimate ? GREY_ROCKET_ICON : WHITE_ROCKET_ICON,
-      text: getStringPoints(t),
-      //color: estimate ? null : 'red',
-    }];
+    return t.get('card', 'shared')
+    .then(function(data) {
+      var estimate = data.estimate;
+      var real = data.real || estimate;
+      var current = data.current || 0;
+
+      var text = "";
+      
+      if (estimate) {
+        text = current + "/" + real;
+      }
+      return [{
+        //icon: estimate ? GREY_ROCKET_ICON : WHITE_ROCKET_ICON,
+        text: text,
+        //color: estimate ? null : 'red',
+      }];
+    });
   },
   'card-detail-badges': function(t, options) {
-    return [{
-      title: 'Points',
-      text: getStringPoints(t) || '',
-      //color: estimate ? null : 'red',
-      callback: function(t) {
-        return t.popup({
-          title: "Points",
-          url: 'forms/points.html',
-        });
+    return t.get('card', 'shared')
+    .then(function(data) {
+      var estimate = data.estimate;
+      var real = data.real || estimate;
+      var current = data.current || 0;
+
+      var text = "";
+      
+      if (estimate) {
+        text = current + "/" + real;
       }
-    }]
+      return [{
+        title: 'Points',
+        text: text,
+        //color: estimate ? null : 'red',
+        callback: function(t) {
+          return t.popup({
+            title: "Points",
+            url: 'forms/points.html',
+          });
+        }
+      }]
+    });
   },
 });
-
-
-function getStringPoints(t) {
-  var text = "";
-  t.get('card', 'shared')
-  .then(function(data) {
-    var estimate = data.estimate;
-    var real = data.real || estimate;
-    var current = data.current || 0;
-
-    console.log(data, data['estimate'], estimate);
-    
-    if (estimate) {
-      text = current + "/" + real;
-    }
-  });
-  
-  console.log("return");
-  
-  return text;
-}

@@ -2,16 +2,6 @@ var icon = "https://nataliakt.github.io/easy-scrum-for-trello/images/kitty.png";
 var iconBlack = "https://nataliakt.github.io/easy-scrum-for-trello/images/kitty-black.png";
 var iconWhite = "https://nataliakt.github.io/easy-scrum-for-trello/images/kitty-white.png";
 
-function openBurndown(t) {
-  t.modal({
-    url: 'charts/burndown.html',
-    args: { text: 'Hello' },
-    accentColor: '',
-    fullscreen: true,
-    title: 'Burndown'
-  });
-}
-
 TrelloPowerUp.initialize({
   'card-buttons': function(t, options){
     return [{
@@ -89,13 +79,20 @@ TrelloPowerUp.initialize({
   },
   'board-buttons': function (t, opts) {
     return [{
-      // we can either provide a button that has a callback function
       icon: {
         dark: iconWhite,
         light: iconBlack
       },
       text: 'Scrum Cat',
-      callback: openBurndown(t),
+      callback: function (t) {
+        t.modal({
+          url: 'charts/burndown.html',
+          args: { text: 'Hello' },
+          accentColor: '',
+          fullscreen: true,
+          title: 'Burndown'
+        });
+      },
       condition: 'edit'
     }];
   }

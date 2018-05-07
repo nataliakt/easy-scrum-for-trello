@@ -15,6 +15,7 @@ window.points.addEventListener('submit', function(event){
 t.render(function(){
   return t.get('card', 'shared', 'estimate')
   .then(function(estimate){
+    window.current.max = estimate || 0;
     window.estimate.value = estimate || '';
     
     t.get('card', 'shared', 'real')

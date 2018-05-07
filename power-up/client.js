@@ -37,35 +37,17 @@ TrelloPowerUp.initialize({
 
 
 function getStringPoints(t) {
-  t.get('card', 'shared')
+  return t.get('card', 'shared')
   .then(function(data) {
-    console.log(data);
-  });
-  
-  // Estimate Points
-  var estimate = -1;
-  t.get('card', 'shared', 'estimate')
-  .then(function(value) {
-    estimate = value || -1;
-  });
-  
-  if (estimate == -1) {
-    return '';
-  }
-  
-  // Real Points
-  var real = estimate;
-  t.get('card', 'shared', 'real')
-  .then(function(value) {
-    real = value || estimate;
-  });
+    var estimate = data.estimate;
+    var real = data.real || estimate;
+    var current = data.current || 0;
 
-  // Current Points
-  var current = 0;
-  t.get('card', 'shared', 'current')
-  .then(function(value) {
-    current = value || 0;
+    console.log(estimate);
+    
+    if (estimate) {
+      return current + "/" + real;
+    }
+    return '';
   });
-  
-  return current + "/" + real;
 }

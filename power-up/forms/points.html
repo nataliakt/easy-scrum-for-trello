@@ -1,13 +1,14 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
+    <link rel="stylesheet" href="../style.css">
     <script src="https://p.trellocdn.com/power-up.min.js"></script>
   </head>
   <body>
     <form id="points">
       <label for="estimate">Estimate:</label>
       <input type="number" name="estimate" id="estimate" />
-      <label for="current">Current:</label>
+      <label for="current">Current (<span id="currentSpan">0</span> pontos):</label>
       <input type="range" min="0" max="0" value="0" name="current" id="current" class="slider"/>
       <label for="real">Real:</label>
       <input type="number" name="real" id="real" />

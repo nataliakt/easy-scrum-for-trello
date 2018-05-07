@@ -26,7 +26,7 @@ t.render(function(){
     t.get('card', 'shared', 'current')
     .then(function(current){
       window.current.value = current || 0;
-      window.estimateSpan.innerHTML = current || 0;
+      window.currentSpan.innerHTML = current || 0;
     });
     
     window.estimate.oninput = function() {

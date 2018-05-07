@@ -1,6 +1,6 @@
-var icon = "https://nataliakt.github.io/easy-scrum-for-trello/images/kitty.png";
-var iconBlack = "https://nataliakt.github.io/easy-scrum-for-trello/images/kitty-black.png";
-var iconWhite = "https://nataliakt.github.io/easy-scrum-for-trello/images/kitty-white.png";
+var icon = window.TrelloPowerUp.util.relativeUrl("../images/kitty.png");
+var iconBlack = window.TrelloPowerUp.util.relativeUrl("../images/kitty-black.png");
+var iconWhite = window.TrelloPowerUp.util.relativeUrl("../images/kitty-white.png");
 
 var openBurndown = function (t) {
   t.modal({

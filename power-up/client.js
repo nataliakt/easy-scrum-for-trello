@@ -43,7 +43,7 @@ function getStringPoints(t) {
     var real = data.real || estimate;
     var current = data.current || 0;
 
-    console.log(estimate);
+    console.log(data, data['estimate'], estimate);
     
     if (estimate) {
       return current + "/" + real;

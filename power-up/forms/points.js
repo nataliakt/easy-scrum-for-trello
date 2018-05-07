@@ -42,7 +42,7 @@ t.render(function(){
     }
     
     window.current.oninput = function() {
-      window.estimateSpan.innerHTML = this.value;
+      window.currentSpan.innerHTML = this.value;
     }
     
   })

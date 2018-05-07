@@ -2,7 +2,7 @@ var icon = "https://nataliakt.github.io/easy-scrum-for-trello/images/kitty.png";
 var iconBlack = "https://nataliakt.github.io/easy-scrum-for-trello/images/kitty-black.png";
 var iconWhite = "https://nataliakt.github.io/easy-scrum-for-trello/images/kitty-white.png";
 
-function openBurndow(t) {
+function openBurndown(t) {
   t.modal({
     url: 'charts/burndown.html',
     args: { text: 'Hello' },

@@ -17,6 +17,10 @@ var setTotalPoints = function () {
   console.log(extras);
 }
 
+var t = TrelloPowerUp;
+
+console.log(t);
+
 TrelloPowerUp.initialize({
   'card-buttons': function(t, options){
     return [{
@@ -93,7 +97,6 @@ TrelloPowerUp.initialize({
     });
   },
   'board-buttons': function (t, opts) {
-    setTotalPoints();
     return [{
       icon: {
         dark: iconWhite,
